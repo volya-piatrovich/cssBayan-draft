@@ -66,6 +66,9 @@ input {
   width: 65%;
   cursor: pointer;
 }
+.accordion__input [checked] h2 {
+  color: rgb(153, 147, 255);
+}
 .accordion__item {
   background-color: #fff;
   border-radius: 0.3em;
@@ -74,12 +77,7 @@ input {
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.accordion__body:hover {
-  color: rgb(153, 147, 255);
-}
-.accordion__body:hover .accordion__icon {
-  display: block;
-}
+
 .accordion__label {
   display: block;
   flex: 1 0 70%;
@@ -105,10 +103,20 @@ input {
 .accordion__input:checked ~ .accordion__image {
   display: block;
 }
-.accordion__item:hover > .accordion__image {
-  display: block;
+@media (hover: hover) {
+  .accordion__item:hover > .accordion__image {
+    display: block;
+  }
+  .accordion__body:hover {
+    color: rgb(153, 147, 255);
+  }
+  .accordion__body:hover .accordion__icon {
+    display: block;
+  }
+  .accordion__item:hover > .accordion__icon {
+    transform: rotate(45deg);
+  }
 }
-
 .accordion__image {
   animation-duration: 0.5s;
   animation-name: slide;
@@ -125,7 +133,6 @@ input {
   width: 1.5em;
   transition: all 0.3s;
 }
-.accordion__item:hover > .accordion__icon,
 .accordion__input:checked ~ .accordion__icon {
   transform: rotate(45deg);
 }
@@ -138,14 +145,31 @@ input {
   }
 }
 @media (max-width: 1179px) {
+  .accordion__body {
+    width: 85%;
+  }
   .title {
     font-size: 1.7rem;
   }
   .accordion__title {
     font-size: 1.2rem;
   }
+  .accordion__image {
+    width: 60%;
+  }
+  @keyframes slide {
+    from {
+      width: 45%;
+    }
+    to {
+      width: 60%;
+    }
+  }
 }
 @media (max-width: 567px) {
+  .accordion__body {
+    width: 85%;
+  }
   .title {
     font-size: 1.2rem;
   }
